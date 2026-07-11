@@ -1,0 +1,8 @@
+project: neqo
+target: client_initial
+cmds:
+  - cmd: /mayhem/client_initial
+    libfuzzer: true
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/client_initial/testsuite

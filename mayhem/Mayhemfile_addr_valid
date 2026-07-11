@@ -1,0 +1,8 @@
+project: neqo
+target: addr_valid
+cmds:
+  - cmd: /mayhem/addr_valid
+    libfuzzer: true
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/addr_valid/testsuite

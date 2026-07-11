@@ -1,0 +1,8 @@
+project: neqo
+target: find_sni
+cmds:
+  - cmd: /mayhem/find_sni
+    libfuzzer: true
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/find_sni/testsuite

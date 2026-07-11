@@ -1,0 +1,29 @@
+# Dockerfile-specific ignore file for mayhem/Dockerfile (BuildKit convention: a
+# file named <dockerfile>.dockerignore next to the Dockerfile takes precedence
+# over the context-root .dockerignore for THAT build only).
+#
+# WHY THIS FILE EXISTS: upstream ships its own root .dockerignore
+# (`* ` / allowlist only `**/*.toml`, `**/*.rs`, `**/*.h`, `**/*.hpp`, `qns`,
+# `Cargo.lock`) for ITS OWN Docker tooling. That allowlist would silently strip
+# .git, mayhem/, .github/, fuzz/corpus/ seed data, etc. from our build context —
+# breaking the "COPY the full repo incl. .git" contract (SPEC — the grader/PATCH
+# tier needs real `mayhem`-branch history baked into the image) without ever
+# touching (and thus never modifying) upstream's own .dockerignore, keeping this
+# integration purely additive.
+#
+# Goal here: bake in the FULL repo (including .git history), dropping only local
+# build artifacts and editor/OS cruft.
+
+# ── Build outputs / local cruft ──────────────────────────────────────────────
+target/
+**/target/
+*.o
+*.a
+*.so
+*.dylib
+**/__pycache__/
+
+# ── Editor / OS noise ────────────────────────────────────────────────────────
+.DS_Store
+*.swp
+*~

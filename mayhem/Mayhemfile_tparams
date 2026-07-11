@@ -1,0 +1,8 @@
+project: neqo
+target: tparams
+cmds:
+  - cmd: /mayhem/tparams
+    libfuzzer: true
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/tparams/testsuite

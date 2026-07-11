@@ -1,0 +1,8 @@
+project: neqo
+target: priority
+cmds:
+  - cmd: /mayhem/priority
+    libfuzzer: true
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/priority/testsuite

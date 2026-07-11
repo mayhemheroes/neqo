@@ -1,0 +1,8 @@
+project: neqo
+target: qpack
+cmds:
+  - cmd: /mayhem/qpack
+    libfuzzer: true
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/qpack/testsuite
